@@ -49,7 +49,7 @@ Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the mea
  You will need the following-
         - CosmosDB Cassandra API account name
         - CosmosDB Cassandra API account endpoint
-        - CosmosDB Cassandra API accountkey 
+        - CosmosDB Cassandra API account key 
     
 ## 3. Connector specific throughput configuration
 
@@ -94,12 +94,12 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  
  ## 4. Connecting to the CosmosDB Cassandra API<BR>
  
- ### Spark project/program-level:
+ ### 4.1. Spark project/program-level:
  1.  Add the maven coordinates to the Datastax Cassandra connector for Spark
  2.  Add the two Scala classes above to your solution.
     
- ### Individual class-level:
- #### Imports:
+ ### 4.2. Individual class-level:
+ #### (i) Imports:
  <code>//datastax Spark connector</code>
 <code>import com.datastax.spark.connector._</code>
 <code>import com.datastax.spark.connector.cql.CassandraConnector</code>
@@ -107,7 +107,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
 <code>//CosmosDB library for multiple retry</code>
 <code>import com.microsoft.azure.cosmosdb.cassandra</code>
  
- #### Spark session configuration:
+ #### (ii) Spark session configuration:
  The following are the various Spark session configuration you can set for connectivity and throughput configuration:
  <code>//Connection-related</code>
  <code>spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")</code>
