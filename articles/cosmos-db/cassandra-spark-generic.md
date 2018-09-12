@@ -38,8 +38,8 @@ Connectivity to CosmosDB Cassandra API is enabled via the Datastax Cassandra con
 From a CosmosDB perspective, we need two other classes from Microsoft in addition to the Datastax connector - a connection factory and custom retry policy. 
 Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the meanwhile, the classes can be found at the links below.
 
-    - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
-    - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
+  - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
+  - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
     
     The retry policy for CosmosDB is configured to handle http status code 429 - "Request Rate Large" exceptions. The CosmosDB Cassandra    API, translates these exceptions to overloaded errors on the Cassandra native protocol, which we want to retry with back-offs. The reason for doing so is because CosmosDB follows a provisioned throughput model, and having this retry policy protects your spark jobs against spikes of data ingress/egress that would momentarily exceed the allocated throughput for your collection, resulting in the request rate limiting exceptions.
 
