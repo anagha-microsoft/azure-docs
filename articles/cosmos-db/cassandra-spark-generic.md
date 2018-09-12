@@ -41,9 +41,9 @@ Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the mea
     - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
     - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
     
-The retry policy for CosmosDB is configured to handle http status code 429 - "Request Rate Large" exceptions. The CosmosDB Cassandra API, translates these exceptions to overloaded errors on the Cassandra native protocol, which we want to retry with back-offs. The reason for doing so is because CosmosDB follows a provisioned throughput model, and having this retry policy protects your spark jobs against spikes of data ingress/egress that would momentarily exceed the allocated throughput for your collection, resulting in the request rate limiting exceptions.
+    The retry policy for CosmosDB is configured to handle http status code 429 - "Request Rate Large" exceptions. The CosmosDB Cassandra    API, translates these exceptions to overloaded errors on the Cassandra native protocol, which we want to retry with back-offs. The reason for doing so is because CosmosDB follows a provisioned throughput model, and having this retry policy protects your spark jobs against spikes of data ingress/egress that would momentarily exceed the allocated throughput for your collection, resulting in the request rate limiting exceptions.
 
-Note - that this retry policy is meant to only protect your spark jobs against momentary spikes. If you have not configured enough RUs on your collection for the intended throughput of your workload such that the retries don't catch up, then the retry policy will result in rethrows.
+    Note - that this retry policy is meant to only protect your spark jobs against momentary spikes. If you have not configured enough RUs on your collection for the intended throughput of your workload such that the retries don't catch up, then the retry policy will result in rethrows.
     
  3.  **CosmosDB instance details:**<BR>
  You will need the following-
