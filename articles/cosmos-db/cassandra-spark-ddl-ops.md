@@ -60,8 +60,10 @@ You should see the keyspace created.
 Currently not supported.
 
 ### 3.3. Drop keyspace:<br>
-<code>DROP keyspace books_kv;</code><br>
-
+sc, below, refers to spark context<br>
+<code>val cdbConnector = CassandraConnector(sc)</code><br>
+<code>cdbConnector.withSessionDo(session => session.execute("DROP KEYSPACE books_ks"))</code><br>
+  
 Validate in cqlsh:<br>
 <code>DESCRIBE keyspaces;</code>
 
