@@ -85,7 +85,7 @@ Validate in cqlsh:<br>
 
 Note: Provisioned throughput and default TTL is not visible in the output above.  You can view the throughput in the portal.
 
-### 4.1. Alter table:<br>
+### 4.2. Alter table:<br>
 **Note:**<br>
 (1) Alter table - add/change columns - on the roadmap<br>
 (2) Alter provisioned throughput - supported<br>
@@ -95,3 +95,12 @@ Note: Provisioned throughput and default TTL is not visible in the output above.
 <code>val cdbConnector = CassandraConnector(sc)</code><br>
 <code>cdbConnector.withSessionDo(session => session.execute("ALTER TABLE books_ks.books WITH cosmosdb_provisioned_throughput=8000, WITH default_time_to_live=0;"))</code>
 
+### 4.3. Drop table<br>
+
+<code>val cdbConnector = CassandraConnector(sc)</code><br>
+<code>cdbConnector.withSessionDo(session => session.execute("DROP TABLE IF EXISTS books_ks.books;"))</code><br>
+
+Validate in cqlsh:<br>
+<code>USE books_ks;</code><br>
+<code>DESCRIBE tables;</code>
+The table books should not be listed.
