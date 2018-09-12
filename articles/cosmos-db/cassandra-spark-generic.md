@@ -116,7 +116,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")</code>
  <code>spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")</code><br>
  <code>spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")</code><br>
- <code>//Throughput related - adjust as needed</code><br>
+ <code>//Throughput-related...adjust as needed</code><br>
  <code>spark.conf.set("spark.cassandra.output.batch.size.rows", "1")</code>
  <code>spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")</code>
  <code>spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")</code><br>
@@ -124,6 +124,11 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
  <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
 
+ ## 5. Connecting from cqlsh<BR>
+ From Linux/Unix/Mac:
+ <code>export SSL_VERSION=TLSv1_2</code>
+ <code>export SSL_VALIDATE=false</code>
+ <code>python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl</code>
  
  
 
