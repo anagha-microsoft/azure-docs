@@ -36,7 +36,7 @@ Connectivity to CosmosDB Cassandra API is enabled via the Datastax Cassandra con
 
 **2.2.  CosmosDB dependencies for the connector:**<BR>
 From a CosmosDB perspective, we need two other classes from Microsoft in addition to the Datastax connector - a connection factory and custom retry policy. 
-Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the meanwhile, the classes can be found at the links below.
+Ref: [SPARKC-437](https://datastax-oss.atlassian.net/browse/SPARKC-437).  We are in the process of publishing a jar on maven, in the meanwhile, the classes can be found at the links below.
 
   - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
   - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
