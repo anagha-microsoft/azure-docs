@@ -19,7 +19,7 @@ ms.author: ankhanol
 
 Azure Cosmos DB is Microsoft's multi-model nosql database PaaS. With CosmosDB, you can provision a massively scalable no-sql instance with, choice of a supported model - document (SQL API, MongoDB API), key-value (Table API), graph (Gremlin API), and column-oriented (Cassandra API) with global replication in a matter of a minute, and get started. 
 
-This document details fundamentals of working with the CosmosDB Cassandra API from any Spark environment - covers connectivity, basic DDL and DML operations in Spark-Scala.  Refer to service specific documentation for details of working with CosmosDB Cassandra API from Azure Databricks and HDInsight.
+This document is one one a series that details fundamentals of working with the CosmosDB Cassandra API from any Spark environment - covering connectivity, basic DDL and DML operations in Spark-Scala.  Refer to service specific documentation for details of working with CosmosDB Cassandra API from Azure Databricks and HDInsight.
 
 1.  Working with CosmosDB Cassandra API from Azure Databricks
 2.  Working with CosmosDB Cassandra API from HDInsight-Spark
@@ -142,9 +142,3 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  7.  Table copy operations
  8.  Bulk-load
  9.  Advanced
-
-
-
-
-
-
