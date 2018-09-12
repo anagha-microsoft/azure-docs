@@ -61,9 +61,9 @@ val booksDF = Seq(
 
 booksDF.printSchema
 booksDF.show
-<br>
+```
 
-
+```scala
 booksDF:org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
 root
  |-- book_id: string (nullable = true)
