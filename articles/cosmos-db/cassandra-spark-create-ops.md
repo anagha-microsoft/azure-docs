@@ -48,7 +48,7 @@ This document how to create/insert into tables in CosmosDB Cassandra API.
 Covers per record TTL, consistency setting, create ifNotExists while creating<br>
 
 ```scala<code>
-// Generate a simple dataset containing five values and
+// Generate a simple dataset containing five values
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887),
    ("b00023", "Arthur Conan Doyle", "A sign of four", 1890),
@@ -59,4 +59,25 @@ val booksDF = Seq(
 
 booksDF.printSchema
 booksDF.show
+</code>
+
+```<code>
+booksDF:org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
+root
+ |-- book_id: string (nullable = true)
+ |-- book_author: string (nullable = true)
+ |-- book_name: string (nullable = true)
+ |-- book_pub_year: integer (nullable = false)
+
++-------+------------------+--------------------+-------------+
+|book_id|       book_author|           book_name|book_pub_year|
++-------+------------------+--------------------+-------------+
+| b00001|Arthur Conan Doyle|  A study in scarlet|         1887|
+| b00023|Arthur Conan Doyle|      A sign of four|         1890|
+| b01001|Arthur Conan Doyle|The adventures of...|         1892|
+| b00501|Arthur Conan Doyle|The memoirs of Sh...|         1893|
+| b00300|Arthur Conan Doyle|The hounds of Bas...|         1901|
++-------+------------------+--------------------+-------------+
+
+booksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
 </code>
