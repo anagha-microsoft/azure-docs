@@ -44,6 +44,7 @@ Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the mea
  3.  **CosmosDB instance details:**<BR>
  You will need the following-
         - CosmosDB Cassandra API account name
+        - CosmosDB Cassandra API account endpoint
         - CosmosDB Cassandra API accountkey 
     
 ## 3. Connector specific throughput configuration
@@ -96,17 +97,22 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  ### Individual class-level:
  #### 1. Spark session configuration:
  The following are the various Spark session configuration you can set for connectivity and throughput configuration:
+ <code>//Connection-related</code>
+ <code>spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")</code>
+ <code>spark.conf.set("spark.cassandra.connection.port","10350")</code>
+ <code>spark.conf.set("spark.cassandra.connection.ssl.enabled","true")</code>
+ <code>spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")</code>
+ <code>spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")</code>
+ <code>//Throughput-related - update numbers per your SLAs</code>
  <code>spark.conf.set("spark.cassandra.output.batch.size.rows", "1")</code>
  <code>spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")</code>
  <code>spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")</code>
  <code>spark.conf.set("spark.cassandra.concurrent.reads", "512")</code>
  <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
- <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000") //Increase this number as needed</code>
+ <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
  <code>spark.conf.set("spark.cassandra.output.ignoreNulls","true")</code>
- 
+  <code>//Consistency-related</code>
  <code>spark.conf.set("spark.cassandra.output.consistency.level","ALL")//Write consistency = Strong</code>
- <code>spark.conf.set("spark.cassandra.input.consistency.level","ALL")//Read consistency = Strong</code>
- 
  
  **Spark session:**
  <code></code>
