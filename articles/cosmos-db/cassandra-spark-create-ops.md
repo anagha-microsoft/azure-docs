@@ -80,4 +80,4 @@ root
 +-------+------------------+--------------------+-------------+
 
 booksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
-</code>```
+</code>
