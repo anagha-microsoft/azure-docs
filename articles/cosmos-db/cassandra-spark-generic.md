@@ -103,6 +103,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.connection.ssl.enabled","true")</code>
  <code>spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")</code>
  <code>spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")</code><br>
+ <code>spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")</code>
  <code>//Throughput related</code><br>
  <code>spark.conf.set("spark.cassandra.output.batch.size.rows", "1")</code>
  <code>spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")</code>
