@@ -100,7 +100,8 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
     
  ### 4.2. Individual class-level:
  #### (i) Imports:
- <code>//datastax Spark connector</code>
+<code>import org.apache.spark.sql.cassandra._</code>
+<code>//datastax Spark connector</code>
 <code>import com.datastax.spark.connector._</code>
 <code>import com.datastax.spark.connector.cql.CassandraConnector</code>
 
