@@ -21,13 +21,14 @@ This document how to create/insert into tables in CosmosDB Cassandra API.
 
 ## 1.  Imports
 ```scala
-import org.apache.spark.sql.cassandra.\_<br>
-//datastax Spark connector<br>
-import com.datastax.spark.connector._<br>
-import com.datastax.spark.connector.cql.CassandraConnector<br>
+import org.apache.spark.sql.cassandra._
+//datastax Spark connector
+import com.datastax.spark.connector._
+import com.datastax.spark.connector.cql.CassandraConnector
 
-//CosmosDB library for multiple retry<br>
-import com.microsoft.azure.cosmosdb.cassandra```
+//CosmosDB library for multiple retry
+import com.microsoft.azure.cosmosdb.cassandra
+```
 
 ## 2. Configuration
 <code>//Connection-related</code>
