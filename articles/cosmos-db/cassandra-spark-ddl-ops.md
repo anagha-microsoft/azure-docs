@@ -48,7 +48,7 @@ This document details keyspace DDL and table DDL constructs with CosmosDB Cassan
 ### 3.1. Create keyspace:<br>
 
 <code>//Cassandra connector instance</code><br>
-<code>val cdbConnector = CassandraConnector(sc)</code><br>
+<code>val cdbConnector = CassandraConnector(sc)</code><br><br>
 <code>// Create keyspace</code><br>
 <code>cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EXISTS books_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 } "))</code>
 
