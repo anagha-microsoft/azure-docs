@@ -31,10 +31,10 @@ This document details fundamentals of connecting to CosmosDB Cassandra API from 
 
 ## 2. Dependencies for connectivity
 
-1.  **Datastax Spark connector for Cassandra:**
+1.  **Datastax Spark connector for Cassandra:**<BR>
 Connectivity to CosmosDB Cassandra API is enabled via the Datastax Cassandra connector for Spark.  Identify and use the version of the connector at Maven central, that is compatible with the Spark and Scala versions of your Spark environment - https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector
 
-2.  **CosmosDB dependencies for the connector:**
+2.  **CosmosDB dependencies for the connector:**<BR>
 From a CosmosDB perspective, we need two other classes from Microsoft in addition to the Datastax connector - a connection factory and custom retry policy. 
 Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the meanwhile, the classes can be found at the links below.
 
