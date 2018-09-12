@@ -130,7 +130,13 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>export SSL_VALIDATE=false</code><BR>
  <code>python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl</code><BR>
  
- 
+ ## 6.  Operations against Cassandra API
+ 1.  DDL operations
+ 2.  Create operations
+ 3.  Read operations
+ 4.  Upsert operations
+ 5.  Delete operations
+ 6.  ...
 
 
 
