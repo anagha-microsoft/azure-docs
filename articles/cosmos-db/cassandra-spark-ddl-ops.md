@@ -57,10 +57,13 @@ Validate in cqlsh:<br>
 You should see the keyspace created.
 
 ### 3.2. Alter keyspace:<br>
-Currently nt supported.
+Currently not supported.
 
 ### 3.3. Drop keyspace:<br>
-Currently nt supported.
+<code>DROP keyspace books_kv;</code><br>
+
+Validate in cqlsh:<br>
+<code>DESCRIBE keyspaces;</code>
 
 
 
