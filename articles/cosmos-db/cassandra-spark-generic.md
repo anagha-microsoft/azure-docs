@@ -94,7 +94,17 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  2.  Add the two Scala classes above to your solution.
     
  ### Code-level:
- 
+ #### 1. Spark session configuration:
+ The following are the various Spark session configuration you can set for connectivity and throughput configuration:
+ <code>spark.conf.set("spark.cassandra.output.batch.size.rows", "1")</code>
+ <code>spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")</code>
+ <code>spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")</code>
+ <code>spark.conf.set("spark.cassandra.concurrent.reads", "512")</code>
+ <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
+ <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000") //Increase this number as needed</code>
+ <code>spark.conf.set("spark.cassandra.output.ignoreNulls","true")</code>
+ <code>spark.conf.set("spark.cassandra.output.consistency.level","ALL")//Write consistency = Strong</code>
+ <code>spark.conf.set("spark.cassandra.input.consistency.level","ALL")//Read consistency = Strong</code>
  
  
  **Spark session:**
