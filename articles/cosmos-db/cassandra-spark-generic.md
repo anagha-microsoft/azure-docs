@@ -40,6 +40,11 @@ Ref: SPARKC-437.  We are in the process of publishing a jar in maven, in the mea
 
   - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
   - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
+ 
+ 3.  **Instance details:**
+ You will need the CosmosDB Cassandra API account name, and the key (add link to get account name & key from portal).  
+ 
+ 
 
 
 
