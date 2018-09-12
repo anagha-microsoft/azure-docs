@@ -59,7 +59,7 @@ val booksDF = Seq(
 
 booksDF.printSchema
 booksDF.show
-</code>
+</code>```<br>
 
 ```<code>
 booksDF:org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
@@ -80,4 +80,4 @@ root
 +-------+------------------+--------------------+-------------+
 
 booksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 2 more fields]
-</code>
+</code>```
