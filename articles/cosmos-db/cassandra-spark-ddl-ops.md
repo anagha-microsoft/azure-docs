@@ -56,5 +56,11 @@ Validate in cqlsh:<br>
 <code>DESCRIBE keyspaces;</code><br>
 You should see the keyspace created.
 
+### 3.2. Alter keyspace:<br>
+Currently nt supported.
+
+### 3.3. Drop keyspace:<br>
+Currently nt supported.
+
 
 
