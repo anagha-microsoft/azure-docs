@@ -45,11 +45,10 @@ This document details keyspace DDL and table DDL constructs with CosmosDB Cassan
 <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
 
 ## 3.  Keyspace
-###3.1. Create keyspace:<br>
-<code>
-//Cassandra connector instance
-val cdbConnector = CassandraConnector(sc)<br>
-// Create keyspace<br>
-cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EXISTS books_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 } "))<br>
-</code>
+### 3.1. Create keyspace:<br>
+
+<code>//Cassandra connector instance</code><br>
+<code>val cdbConnector = CassandraConnector(sc)</code><br>
+<code>// Create keyspace</code><br>
+<code>cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EXISTS books_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 } "))</code>
 
