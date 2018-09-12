@@ -24,24 +24,30 @@ This document details fundamentals of connecting to CosmosDB Cassandra API from 
 1.  Working with CosmosDB Cassandra API from Azure Databricks
 2.  Working with CosmosDB Cassandra API from HDInsight-Spark
 
-## Prerequisites
+## 1. Prerequisites
 
-1.  Provision a CosmosDB Cassandra API account (add link)
+1.  Provision a CosmosDB Cassandra API account
 2.  Provision your choice of Spark environment
 
-## Dependencies for connectivity
+## 2. Dependencies for connectivity
 
 1.  **Datastax Spark connector for Cassandra:**
 Connectivity to CosmosDB Cassandra API is enabled via the Datastax Cassandra connector for Spark.  Identify and use the version of the connector at Maven central, that is compatible with the Spark and Scala versions of your Spark environment - https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector
 
 2.  **CosmosDB dependencies for the connector:**
 From a CosmosDB perspective, we need two other classes from Microsoft in addition to the Datastax connector - a connection factory and custom retry policy. 
-Ref: SPARKC-437.  We are in the process of publishing a jar in maven, in the meanwhile, the classes can be found at the links below.
+Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the meanwhile, the classes can be found at the links below.
 
     - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
     - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
     
- **Connector specific throughput configuration:**<br>
+ 3.  **CosmosDB instance details:**<BR>
+ You will need the following-
+        - CosmosDB Cassandra API account name
+        - CosmosDB Cassandra API accountkey 
+    
+## 3. Connector specific throughput configuration
+
 There are two areas of focus when tuning Spark integration with the CosmosDB Cassandra API.  The listing below details CosmosDB Cassandra API specific throughput configuration.  General information regarding this configuration can be found on the [Configuration Reference](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) page of the DataStax Spark Cassandra Connector github repository.
 <table class="table">
 <tr><th>Property Name</th><th>Description</th></tr>
@@ -81,16 +87,14 @@ There are two areas of focus when tuning Spark integration with the CosmosDB Cas
 
 Regarding throughput and degree of parallelism, it is important to tune the relevant parameters based on the amount of load you expect your upstream/downstream flows to be, the executors provisioned for your spark jobs, and the throughput you have provisioned for your Cosmos DB account.
  
- 3.  **CosmosDB instance details:**<BR>
- You will need-
-        - CosmosDB Cassandra API account name, and the 
-        - CosmosDB Cassandra API accountkey 
+ ## 4. Connecting to the CosmosDB Cassandra API<BR>
  
- ## Connecting to CosmosDB Cassandra API<BR>
- 
+ ### Program-level:
  1.  Add the maven coordinates to the Datastax Cassandra connector for Spark
  2.  Add the two Scala classes above to your solution.
- 3.  The rest are covered below.
+    
+ ### Code-level:
+ 
  
  
  **Spark session:**
