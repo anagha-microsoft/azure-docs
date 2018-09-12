@@ -125,10 +125,10 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
 
  ## 5. Connecting from cqlsh<BR>
- From Linux/Unix/Mac:
- <code>export SSL_VERSION=TLSv1_2</code>
- <code>export SSL_VALIDATE=false</code>
- <code>python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl</code>
+ From Linux/Unix/Mac:<BR>
+ <code>export SSL_VERSION=TLSv1_2</code><BR>
+ <code>export SSL_VALIDATE=false</code><BR>
+ <code>python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl</code><BR>
  
  
 
