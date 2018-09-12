@@ -47,7 +47,7 @@ This document how to create/insert into tables in CosmosDB Cassandra API.
 ## 3. Dataframe API
 Covers per record TTL, consistency setting, create ifNotExists while creating<br>
 
-```Scala<code>
+```scala<code>
 // Generate a simple dataset containing five values and
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887),
