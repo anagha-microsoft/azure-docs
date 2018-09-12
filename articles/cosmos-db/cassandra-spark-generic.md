@@ -99,6 +99,14 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  2.  Add the two Scala classes above to your solution.
     
  ### Individual class-level:
+ #### Imports:
+ <code>//datastax Spark connector</code>
+<code>import com.datastax.spark.connector._</code>
+<code>import com.datastax.spark.connector.cql.CassandraConnector</code>
+
+<code>//CosmosDB library for multiple retry</code>
+<code>import com.microsoft.azure.cosmosdb.cassandra</code>
+ 
  #### Spark session configuration:
  The following are the various Spark session configuration you can set for connectivity and throughput configuration:
  <code>//Connection-related</code>
