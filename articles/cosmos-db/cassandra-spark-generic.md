@@ -103,7 +103,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.connection.ssl.enabled","true")</code>
  <code>spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")</code>
  <code>spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")</code>
- <code>//Throughput-related - update numbers per your SLAs</code>
+ <code>\//Throughput-related - update numbers per your SLAs</code>
  <code>spark.conf.set("spark.cassandra.output.batch.size.rows", "1")</code>
  <code>spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")</code>
  <code>spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")</code>
@@ -111,7 +111,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
  <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
  <code>spark.conf.set("spark.cassandra.output.ignoreNulls","true")</code>
-  <code>//Consistency-related</code>
+ <code>\//Consistency-related</code>
  <code>spark.conf.set("spark.cassandra.output.consistency.level","ALL")//Write consistency = Strong</code>
  
  **Spark session:**
