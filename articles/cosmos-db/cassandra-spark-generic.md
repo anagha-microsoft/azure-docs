@@ -50,7 +50,46 @@ Ref: SPARKC-437.  We are in the process of publishing a jar in maven, in the mea
  2.  Add the two Scala classes above to your solution.
  3.  The rest are covered below.
  
-**Connector specific configuration:**
+**Connector specific throughput configuration:**
+There are two areas of focus when tuning Spark integration with the CosmosDB Cassandra API.  The listing below details CosmosDB Cassandra API specific throughput configuration.  General information regarding this configuration can be found on the [Configuration Reference](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) page of the DataStax Spark Cassandra Connector github repository.
+<table class="table">
+<tr><th>Property Name</th><th>Description</th></tr>
+<tr>
+  <td><code>spark.cassandra.output.batch.size.rows</code></td>
+  <td>Leave this to <code>1</code>. This is prefered for Cosmos DB's provisioning model in order to achieve higher throughput for heavy workloads.</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.connection.connections_per_executor_max</code></td>
+  <td><code>10*n</code><br/><br/>Which would be equivalent to 10 connections per node in an n-node Cassandra cluster. Hence if you require 5 connections per node per executor for a 5 node Cassandra cluster, then you would need to set this configuration to 25.<br/>(Modify based on the degree of parallelism/number of executors that your spark job are configured for)</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.output.concurrent.writes</code></td>
+  <td><code>100</code><br/><br/>Defines the number of parallel writes that can occur per executor. As batch.size.rows is <code>1</code>, make sure to scale up this value accordingly. (Modify this based on the degree of parallelism/throughput that you want to achieve for your workload)</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.concurrent.reads</code></td>
+  <td><code>512</code><br /><br />Defines the number of parallel reads that can occur per executor. (Modify this based on the degree of parallelism/throughput that you want to achieve for your workload)</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.output.throughput_mb_per_sec</code></td>
+  <td>Defines the total write throughput per executor. This can be used as an upper cap for your spark job throughput, and base it on the provisioned throughput of your Cosmos DB Collection.</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.input.reads_per_sec</code></td>
+  <td>Defines the total read throughput per executor. This can be used as an upper cap for your spark job throughput, and base it on the provisioned throughput of your Cosmos DB Collection.</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.output.batch.grouping.buffer.size</code></td>
+  <td>1000</td>
+</tr>
+<tr>
+  <td><code>spark.cassandra.connection.keep_alive_ms</code></td>
+  <td>60000</td>
+</tr>
+</table>
+
+Regarding throughput and degree of parallelism, it is important to tune the relevant parameters based on the amount of load you expect your upstream/downstream flows to be, the executors provisioned for your spark jobs, and the throughput you have provisioned for your Cosmos DB account.
+ 
  
  **Spark session:**
  <code></code>
