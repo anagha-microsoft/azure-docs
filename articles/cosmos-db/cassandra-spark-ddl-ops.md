@@ -20,16 +20,15 @@ ms.author: ankhanol
 This document details keyspace DDL and table DDL constructs with CosmosDB Cassandra API.
 
 ## 1.  Imports
-<code>import org.apache.spark.sql.cassandra._</code>
+<code>import org.apache.spark.sql.cassandra.\_</code><br>
+<code>//datastax Spark connector</code><br>
+<code>import com.datastax.spark.connector._</code><br>
+<code>import com.datastax.spark.connector.cql.CassandraConnector</code><br>
 
-<code>//datastax Spark connector</code>
-<code>import com.datastax.spark.connector._</code>
-<code>import com.datastax.spark.connector.cql.CassandraConnector</code>
-
-<code>//CosmosDB library for multiple retry</code>
+<code>//CosmosDB library for multiple retry</code><br>
 <code>import com.microsoft.azure.cosmosdb.cassandra</code>
 
-## 2. Configuration:
+## 2. Configuration
 <code>//Connection-related</code>
 <code>spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")</code>
 <code>spark.conf.set("spark.cassandra.connection.port","10350")</code>
@@ -44,3 +43,13 @@ This document details keyspace DDL and table DDL constructs with CosmosDB Cassan
 <code>spark.conf.set("spark.cassandra.concurrent.reads", "512")</code>
 <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
 <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
+
+## 3.  Keyspace
+###3.1. Create keyspace:
+<code>
+//Cassandra connector instance
+val cdbConnector = CassandraConnector(sc)
+// Create keyspace
+cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EXISTS books_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 } "))
+</code>
+
