@@ -94,12 +94,12 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  
  ## 4. Connecting to the CosmosDB Cassandra API<BR>
  
- ### Program-level:
+ ### Spark project/program-level:
  1.  Add the maven coordinates to the Datastax Cassandra connector for Spark
  2.  Add the two Scala classes above to your solution.
     
  ### Individual class-level:
- #### 1. Spark session configuration:
+ #### Spark session configuration:
  The following are the various Spark session configuration you can set for connectivity and throughput configuration:
  <code>//Connection-related</code>
  <code>spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")</code>
@@ -116,10 +116,6 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")</code>
  <code>spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")</code>
 
- **Spark session:**
- <code></code>
-
- **RDD API:**
  
  
 
