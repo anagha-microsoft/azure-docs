@@ -133,7 +133,7 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  
  ## 6.  Operations against Cassandra API
  The documentation at the links below include sample code in Spark-Scala for DDL and DML operations in batch mode.  Section 9 covers streaming mode.  Before trying out the following, is important to read what is supported in CosmosDB Cassandra API given that it is a fully manages services versus Apache Cassandra, and understand what features are applicable.(Sneha to add link to Govind's doc)
- 1.  DDL operations
+ 1.  [DDL operations](azure-docs/articles/cosmos-db/cassandra-spark-ddl-ops.md)
  2.  Create operations
  3.  Read operations
  4.  Upsert operations
