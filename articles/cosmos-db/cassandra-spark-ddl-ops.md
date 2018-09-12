@@ -102,5 +102,5 @@ Note: Provisioned throughput and default TTL is not visible in the output above.
 
 Validate in cqlsh:<br>
 <code>USE books_ks;</code><br>
-<code>DESCRIBE tables;</code>
+<code>DESCRIBE tables;</code><br>
 The table books should not be listed.
