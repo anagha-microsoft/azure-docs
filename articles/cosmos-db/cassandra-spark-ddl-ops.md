@@ -52,7 +52,7 @@ This document details keyspace DDL and table DDL constructs with CosmosDB Cassan
 <code>// Create keyspace</code><br>
 <code>cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EXISTS books_ks WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 } "))</code>
 
-### 3.2. Validate in cqlsh:<br>
+Validate in cqlsh:<br>
 <code>DESCRIBE keyspaces;</code><br>
 You should see the keyspace created.
 
