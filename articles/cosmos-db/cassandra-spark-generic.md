@@ -132,12 +132,16 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  <code>python cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl</code><BR>
  
  ## 6.  Operations against Cassandra API
+ The following documentation includes sample code in Sprak-Scala for DDL and DML operations in batch mode.  Section 9 covers streaming mode.
  1.  DDL operations
  2.  Create operations
  3.  Read operations
  4.  Upsert operations
  5.  Delete operations
- 6.  ...
+ 6.  Aggregation operations
+ 7.  Table copy operations
+ 8.  Bulk-load
+ 9.  Advanced
 
 
 
