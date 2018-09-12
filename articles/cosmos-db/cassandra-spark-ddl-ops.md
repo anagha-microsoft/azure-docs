@@ -80,7 +80,7 @@ CosmosDB specific 'must know's:<br>
 <code>cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))</code>
 
 Validate in cqlsh:<br>
-<code>USE books_ks;</code>
+<code>USE books_ks;</code><br>
 <code>DESCRIBE books;</code>
 
 Note: Provisioned throughput and default TTL is not visible in the output above.  You can view the throughput in the portal.
@@ -90,7 +90,7 @@ Note: Provisioned throughput and default TTL is not visible in the output above.
 (1) Alter table - add/change columns - on the roadmap<br>
 (2) Alter provisioned throughput - supported<br>
 (3) Alter table TTL - supported<br>
-(4) Alter table throughput - supported<br><br>
+(4) Alter table throughput - supported<br>
 
 <code>val cdbConnector = CassandraConnector(sc)</code><br>
 <code>cdbConnector.withSessionDo(session => session.execute("ALTER TABLE books_ks.books WITH cosmosdb_provisioned_throughput=8000, WITH default_time_to_live=0;"))</code>
