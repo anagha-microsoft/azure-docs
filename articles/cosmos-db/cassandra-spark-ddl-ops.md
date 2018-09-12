@@ -67,5 +67,16 @@ sc, below, refers to spark context<br>
 Validate in cqlsh:<br>
 <code>DESCRIBE keyspaces;</code>
 
+## 4.  Table
+CosmosDB specific 'must know's:<br>
+  -Throughput can be assigned at a table level as part of the create table statement.<br>
+  -One partition key can store 10 GB of data<br>
+  -One record can be max of 2 MB in size<br>
+  -One partition key range can store multiple partition keys<br>
+
+### 4.1. Create table:<br>
+<code>val cdbConnector = CassandraConnector(sc)</code>
+
+<code>cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))</code>
 
 
