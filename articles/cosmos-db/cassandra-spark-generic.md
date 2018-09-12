@@ -102,10 +102,10 @@ Regarding throughput and degree of parallelism, it is important to tune the rele
  #### (i) Imports:
 <code>import org.apache.spark.sql.cassandra.\_</code><br>
 <code>//datastax Spark connector</code><br>
-<code>import com.datastax.spark.connector._</code>
-<code>import com.datastax.spark.connector.cql.CassandraConnector</code>
+<code>import com.datastax.spark.connector._</code><br>
+<code>import com.datastax.spark.connector.cql.CassandraConnector</code><br>
 
-<code>//CosmosDB library for multiple retry</code>
+<code>//CosmosDB library for multiple retry</code><br>
 <code>import com.microsoft.azure.cosmosdb.cassandra</code>
  
  #### (ii) Spark session configuration:
