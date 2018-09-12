@@ -1,1 +1,19 @@
 
+---
+title: 'DDL operations against Azure CosmosDB Cassandra API from Spark | Microsoft Docs'
+description: This document how to create keyspaces and tables in CosmosDB Cassandra API
+services: cosmos-db
+author: anagha-microsoft
+manager: kfile
+
+ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
+ms.custom: basics, DDL, DML
+ms.devlang: spark-scala
+ms.topic: quickstart
+ms.date: 09/12/2018
+ms.author: ankhanol
+
+---
+
+# DDL operations against Azure CosmosDB Cassandra API from Spark
