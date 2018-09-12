@@ -17,9 +17,9 @@ ms.author: ankhanol
 
 # Working with CosmosDB Cassandra API from Spark
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model nosql database PaaS. With CosmosDB, you can provision a massively scalable no-sql instance with, choice of a supported model - document (SQL API, MongoDB API), key-value (Table API), graph (Gremlin API), and column-oriented (Cassandra API) with global replication within a minute and get started. 
+Azure Cosmos DB is Microsoft's multi-model nosql database PaaS. With CosmosDB, you can provision a massively scalable no-sql instance with, choice of a supported model - document (SQL API, MongoDB API), key-value (Table API), graph (Gremlin API), and column-oriented (Cassandra API) with global replication in a matter of a minute, and get started. 
 
-This document details fundamentals of connecting to CosmosDB Cassandra API from any Spark environment, and covers basic DDL and DML operations in Spark-Scala.  Refer to service specific documentation to learn specifics of working with CosmosDB Cassandra API from Azure Databricks and HDInsight.
+This document details fundamentals of working with the CosmosDB Cassandra API from any Spark environment - covers connectivity, basic DDL and DML operations in Spark-Scala.  Refer to service specific documentation for details of working with CosmosDB Cassandra API from Azure Databricks and HDInsight.
 
 1.  Working with CosmosDB Cassandra API from Azure Databricks
 2.  Working with CosmosDB Cassandra API from HDInsight-Spark
@@ -40,6 +40,10 @@ Ref: SPARKC-437.  We are in the process of publishing a jar on maven, in the mea
 
     - CosmosDbConnectionFactory.scala - add link to Azure samples<br>
     - CosmosDbMultipleRetryPolicy.scala - add link to Azure samples<br>
+    
+The retry policy for CosmosDB is configured to handle http status code 429 - "Request Rate Large" exceptions. The CosmosDB Cassandra API, translates these exceptions to overloaded errors on the Cassandra native protocol, which we want to retry with back-offs. The reason for doing so is because CosmosDB follows a provisioned throughput model, and having this retry policy protects your spark jobs against spikes of data ingress/egress that would momentarily exceed the allocated throughput for your collection, resulting in the request rate limiting exceptions.
+
+Note - that this retry policy is meant to only protect your spark jobs against momentary spikes. If you have not configured enough RUs on your collection for the intended throughput of your workload such that the retries don't catch up, then the retry policy will result in rethrows.
     
  3.  **CosmosDB instance details:**<BR>
  You will need the following-
